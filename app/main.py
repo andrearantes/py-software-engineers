@@ -12,7 +12,7 @@ class FrontendDeveloper(SoftwareEngineer):
         super().__init__(name)
         self.skills.extend(("JavaScript", "HTML", "CSS"))
 
-    def create_awesome_web_page(self):
+    def create_awesome_web_page(self) -> None:
         print(f"{self.name} is creating a webpage...")
         return "<h1>Hello world</h1>"
 
@@ -41,7 +41,7 @@ class FullStackDeveloper(BackendDeveloper,
                          FrontendDeveloper,
                          ):
 
-    def create_web_application(self):
+    def create_web_application(self) -> None:
         print(f"{self.name} started creating a web application...")
         self.create_powerful_api()
         self.create_awesome_web_page()
