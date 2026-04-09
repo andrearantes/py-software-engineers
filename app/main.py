@@ -4,14 +4,14 @@ class SoftwareEngineer:
         self.name = name
         self.skills = skills
 
-    def learn_skill(self, skill: str):
+    def learn_skill(self, skill: str) -> None:
         skill.append(self.skills)
 
 
 class FrontendDeveloper(SoftwareEngineer):
     def __init__(self, name: str,
                  skills: list = ("JavaScript", "HTML", "CSS")
-                ) -> None:
+                 ) -> None:
         super().__init__(name, skills)
 
     def create_awesome_web_page(self):
@@ -22,10 +22,10 @@ class FrontendDeveloper(SoftwareEngineer):
 class BackendDeveloper(SoftwareEngineer):
     def __init__(self, name: str,
                  skills: list = ("Python", "SQL", "Django")
-                ) -> None:
+                 ) -> None:
         super().__init__(name, skills)
 
-    def create_powerful_api(self):
+    def create_powerful_api(self) -> None:
         print(f"{self.name} is creating an API...")
         return "http://127.0.0.1:8000"
 
@@ -33,10 +33,10 @@ class BackendDeveloper(SoftwareEngineer):
 class AndroidDeveloper(SoftwareEngineer):
     def __init__(self, name: str,
                  skills: list = ("Java", "Android Studio")
-                ) -> None:
+                 ) -> None:
         super().__init__(name, skills)
 
-    def create_smooth_mobile_app(self):
+    def create_smooth_mobile_app(self) -> None:
         print(f"{self.name} is creating a mobile app...")
         return "Ads every three swipes"
 
@@ -44,10 +44,10 @@ class AndroidDeveloper(SoftwareEngineer):
 class FullStackDeveloper(BackendDeveloper,
                          FrontendDeveloper,
                          SoftwareEngineer
-                        ):
+                         ):
     def __init__(self, name: str,) -> None:
         super().__init__(name)
+
     def create_web_application(self):
         print(f"{self.name} started creating a web application...",
-              "create_powerful_api, create_awesome_web_page"
-             )
+              "create_powerful_api, create_awesome_web_page")
