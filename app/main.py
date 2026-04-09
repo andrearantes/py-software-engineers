@@ -1,18 +1,16 @@
 class SoftwareEngineer:
-    def __init__(self, name: str, skills: list) -> None:
-        skills = []
+    def __init__(self, name: str) -> None:
         self.name = name
-        self.skills = skills
+        self.skills = []
 
-    def learn_skill(self, skill: str) -> None:
-        skill.append(self.skills)
+    def learn_skill(self) -> None:
+        self.skills.append("skill")
 
 
 class FrontendDeveloper(SoftwareEngineer):
-    def __init__(self, name: str,
-                 skills: list = ("JavaScript", "HTML", "CSS")
-                 ) -> None:
-        super().__init__(name, skills)
+    def __init__(self, name: str) -> None:
+        super().__init__(name)
+        self.skills.extend(("JavaScript", "HTML", "CSS"))
 
     def create_awesome_web_page(self):
         print(f"{self.name} is creating a webpage...")
@@ -20,10 +18,9 @@ class FrontendDeveloper(SoftwareEngineer):
 
 
 class BackendDeveloper(SoftwareEngineer):
-    def __init__(self, name: str,
-                 skills: list = ("Python", "SQL", "Django")
-                 ) -> None:
-        super().__init__(name, skills)
+    def __init__(self, name: str) -> None:
+        super().__init__(name)
+        self.skills.extend(("Python", "SQL", "Django"))
 
     def create_powerful_api(self) -> None:
         print(f"{self.name} is creating an API...")
@@ -31,10 +28,9 @@ class BackendDeveloper(SoftwareEngineer):
 
 
 class AndroidDeveloper(SoftwareEngineer):
-    def __init__(self, name: str,
-                 skills: list = ("Java", "Android Studio")
-                 ) -> None:
-        super().__init__(name, skills)
+    def __init__(self, name: str) -> None:
+        super().__init__(name)
+        self.skills.extend(("Java", "Android Studio"))
 
     def create_smooth_mobile_app(self) -> None:
         print(f"{self.name} is creating a mobile app...")
@@ -45,9 +41,8 @@ class FullStackDeveloper(BackendDeveloper,
                          FrontendDeveloper,
                          SoftwareEngineer
                          ):
-    def __init__(self, name: str,) -> None:
-        super().__init__(name)
 
     def create_web_application(self):
-        print(f"{self.name} started creating a web application...",
-              "create_powerful_api, create_awesome_web_page")
+        print(f"{self.name} started creating a web application...")
+        self.create_powerful_api()
+        self.create_awesome_web_page()
